@@ -1,0 +1,69 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff4e6; /* warm light peach */
+  text-align: center;
+  padding: 50px;
+  color: #6b2f2f; /* warm dark red-brown text */
+}
+
+h1 {
+  color: #d14900; /* bright orange */
+  font-size: 48px;
+}
+
+p {
+  font-size: 18px;
+  color: #994d00; /* burnt orange */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffa600; /* golden yellow */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff7b00; /* darker orange on hover */
+}
+
+/* Style the lesson buttons container */
+#lesson-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between buttons */
+}
+
+/* Style each lesson button */
+#lesson-buttons button {
+  background-color: #ffb347; /* soft warm orange */
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  color: #6b2f2f; /* dark red-brown */
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(255, 179, 71, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for lesson buttons */
+#lesson-buttons button:hover {
+  background-color: #ff7b00; /* brighter orange on hover */
+  color: white;
+  box-shadow: 0 6px 8px rgba(255, 123, 0, 0.6);
+}
+
+/* Style the phrase display */
+#phrase-display {
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #d14900; /* bright orange */
+  min-height: 60px; /* reserve space so page doesn't jump */
+}
