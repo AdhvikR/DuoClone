@@ -5,7 +5,7 @@
   <title>Learn Marathi</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <body>
+<body>
   <h1>मराठी शिका!</h1>
   <p>Choose a lesson to get started:</p>
 
@@ -17,7 +17,64 @@
 
   <div id="phrase-display" style="margin-top: 30px; font-size: 24px; color: #d14900;"></div>
 
-  <script src="script.js"></script>
-</body>
+  <!-- LOGIN/SIGNUP SECTION -->
+  <div style="margin-top: 40px;">
+    <h2>Login</h2>
+    <input type="email" id="login-email" placeholder="Email"><br>
+    <input type="password" id="login-password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
 
+    <h2>Signup</h2>
+    <input type="email" id="signup-email" placeholder="Email"><br>
+    <input type="password" id="signup-password" placeholder="Password"><br>
+    <button onclick="signup()">Sign Up</button>
+  </div>
+
+  <!-- Script to show phrases -->
+  <script src="script.js"></script>
+
+  <!-- Firebase Auth Script with type="module" -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBXB0xkthx3ADlAShQmze6BYpl8GuWaO3E",
+      authDomain: "duoclone-75dda.firebaseapp.com",
+      projectId: "duoclone-75dda",
+      storageBucket: "duoclone-75dda.firebasestorage.app",
+      messagingSenderId: "685768461812",
+      appId: "1:685768461812:web:51f6f8926336878649bda1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Sign Up Function
+    window.signup = async function () {
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        alert("Signed up: " + userCredential.user.email);
+      } catch (error) {
+        alert("Signup Error: " + error.message);
+      }
+    };
+
+    // 👤 Login Function
+    window.login = async function () {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        alert("Logged in: " + userCredential.user.email);
+      } catch (error) {
+        alert("Login Error: " + error.message);
+      }
+    };
+  </script>
+</body>
 </html>
